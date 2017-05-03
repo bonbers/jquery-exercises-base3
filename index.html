@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Jquery exercices base 3</title>
-        <link rel="stylesheet" href="style.css">
+       <link rel="stylesheet" href="style.css">
+       <script src="jquery.js"></script>
     </head>
     <body>
         <h1>Exercices Jquery base 3</h1>
@@ -14,10 +15,52 @@
         <h3><em>Exercice 1</em></h3>
         <p>Céer un bouton et un champ texte dans lequel on affiche le nombre de clics sur le bouton.</p>
 
-        <hr>
+        <button id="btn1">Clickez moi</button>
+
+        <p>Click: <span id="click1"></span></p>
+
+        <script>
+
+
+        $(document).ready(function() {
+                i=0;
+          $('#btn1').click(function() {
+                i++;
+               $('#click1').html(i);
+           });
+        });
+
+        </script>
+
+                  <hr>
         <!-------------------------------------------- Exercice 2 -------------------------------------->
         <h3>Exercice 2</h3>
         <p>Céer 2 boutons ("+" et "-") et un champ texte dans lequel on augmente ou baisse le chiffre en fonction des boutons cliqués</p>
+
+        <button id="btn2">++++</button>
+        <button id="btn3">----</button>
+
+        <p>Click: <span id="click"></span></p>
+
+        <script>
+
+
+        $(document).ready(function() {
+                i=0;
+          $('#btn2').click(function() {
+                i++;
+               $('#click').html(i);
+           });
+        });
+        $(document).ready(function() {
+                i=0;
+          $('#btn3').click(function() {
+                i--;
+               $('#click').html(i);
+           });
+        });
+
+        </script>
 
         <hr>
         <!-------------------------------------------- Exercice 3 -------------------------------------->
@@ -33,7 +76,44 @@
         </ul>
         </p>
 
+        <div id="rectangle">
+        </div>
+        <button id="one">10px</button>
+        <button id="two">green</button>
+        <button id="three">Couleur initiale</button>
+        <button id="four">Cacher</button>
+        <button id="five">Montrer</button>
+        <script>
 
+        $(document).ready(function(){
+              taille= 10;
+              taillemax=100;
+              taillebase=10;
+              $("#one").click(function() {
+                taille=taille+10;
+                   $("#rectangle").css('height', taille+"px");
+                        if (taille >= taillemax) {
+                             $('#rectangle').css('height', taillebase+"px");
+                        }
+              });
+
+              $("#two").click(function() {
+                $("#rectangle").css("background-color", "green");
+              });
+
+              $("#three").click(function() {
+                $("#rectangle").css("background-color", "yellow");
+              });
+
+              $("#four").click(function() {
+                $("#rectangle").hide();
+              });
+
+              $("#five").click(function() {
+                $("#rectangle").show();
+              });
+          });
+        </script>
         <hr>
         <!-------------------------------------------- Exercice 4 -------------------------------------->
         <h3>Exercice 4</h3>
@@ -46,6 +126,35 @@
         </ul>
         <p><b>Bonus</b> : Quand la réponse est trouvée, on obtient le nombre d'essai que l'on a fait.
         </p>
+
+        <input id="player" type="text" placeholder="Trouve le nombre ! Entre 0 et 100"/>
+        <button id="score">Valider !!</button>
+
+        <p id="resultat"></p>
+
+        <script>
+        $(document).ready(function(){
+              var numbrand = Math.floor(Math.random()*100);
+              var coup = 0;
+
+              $("#score").click(function() {
+                    var number=$("#player").val();
+                    coup++;
+                    if (number > numbrand) {
+                      $("#resultat").text("Nombre trop grand !! Réessayer");
+                    }
+                    else if (number < numbrand) {
+                      $("#resultat").text("Nombre trop pitit haha !! Réessayer");
+                    }
+                    else {
+                      $("#resultat").text("BRAVO ! Tu as réussi en "+coup+" coups");
+                    }
+
+               });
+         });
+
+        </script>
+
         <hr>
 
 
