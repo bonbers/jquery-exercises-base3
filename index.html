@@ -7,6 +7,10 @@
        <script src="jquery.js"></script>
     </head>
     <body>
+
+      <script>
+console.log('coucou');
+        </script>
         <h1>Exercices Jquery base 3</h1>
         <p><b>Charger la dernière version de Jquery et lier le fichier dans la balise head du document html.</b></p>
 
@@ -157,7 +161,36 @@
 
         <hr>
 
+         <h3>Exercice 5</h3>
 
+         <p>Construire un carré en html/css. Et faire en sorte que :
+
+    lorsque l'on appuie sur une touche de direction(haut, bas, gauche, droite) le carré se déplace de 10 px dans la bonne direction.
+    lorsque le bloc atteint un bord de la page, il réaparaisse de l'autre côté.
+          </p>
+
+          <div id="carre">
+          </div>
+
+          <script>
+
+          $(document).keydown(function(e) {
+              switch (e.which) {
+              case 37:
+                  $('#carre').stop().animate({left: '-=10'}); //gauche (37)
+                  break;
+              case 38:
+                  $('#carre').stop().animate({top: '-=10'}); //haut (38)
+                  break;
+              case 39:
+                  $('#carre').stop().animate({left: '+=10'}); //droite (39)
+                  break;
+              case 40:
+                  $('#carre').stop().animate({top: '+=10'}); //bas (40)
+                  break;
+              }
+          });
+          </script>
 
     </body>
 </html>

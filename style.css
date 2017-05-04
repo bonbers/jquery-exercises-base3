@@ -45,6 +45,17 @@ h3{
   background-color: yellow;
 }
 
+
 button {
   color: black;
+}
+
+#carre {
+  margin:auto;
+  width: 90px;
+  height : 90px;
+  border: solid black 3px;
+  margin-bottom: 15px;
+  background-color: yellow;
+  position: absolute;
 }
